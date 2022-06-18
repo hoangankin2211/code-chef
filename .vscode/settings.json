@@ -4,6 +4,12 @@
         "ostream": "cpp",
         "iostream": "cpp",
         "ios": "cpp",
-        "xiosbase": "cpp"
-    }
+        "xiosbase": "cpp",
+        "iterator": "cpp",
+        "xutility": "cpp"
+    },
+    "cSpell.words": [
+        "Carvans",
+        "Devu"
+    ]
 }

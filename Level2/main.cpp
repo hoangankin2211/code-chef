@@ -132,8 +132,261 @@ void ChefAndIPCCertificate(){
     }
 }
 //Array
+void makeThemEqual(){
+    int t =0;
+    cin>>t;
+    while (t--){
+        int n;
+        
+        cin>>n;
+        
+        int *arr = new int[n];
+        for (int i=0;i<n;i++){
+            cin >>arr[i];
+        }
+        int max = arr[0];
+        int min = arr[0];
+        for (int i=1;i<n;i++){
+            if (max<arr[i]) max = arr[i];
+            if (min>arr[i]) min = arr[i];
+        }
+        
+        if (max == min) cout << 0 << endl;
+        else {
+            cout << max - min << endl;
+        }
 
+        delete arr;
+    }
+}
+
+ void ASubtaskProblem(){
+    int t = 0;
+    cin>>t;
+    while (t--){
+        int n = 0, m=0, k=0;
+        cin>>n>>m>>k;
+        int *arr = new int[n];
+        for (int i=0;i<n;i++){
+            cin>>arr[i];
+        }
+        int rightAnswer = 0;
+        int point = 0;
+        for (int i=0;i<n;i++){
+            if (arr[i]==1){
+                rightAnswer++;
+                if (i==m-1 && rightAnswer==m){
+                    point = k;
+                }
+                else if (i == n -1 && rightAnswer == n){
+                    point = 100;
+                }
+            }
+            
+        }
+        cout << point << endl;
+    } 
+}
+
+void ICPCBallons(){
+    int t = 0;
+    cin>>t;
+    while (t--){
+        int n ;
+        cin>>n;
+        int *arr = new int[n];
+        int res = 0;
+        for (int i=0;i<n;i++){
+            cin>>arr[i];
+        }
+        for (int i=0;i<n;i++){
+            if ((arr[i]>=1 && arr[i]<=7) || res < 7){
+                res++;
+            }
+        }
+        cout<<res<<endl;
+    }
+}
+
+
+void GasolineIntroduction(){
+    int t = 0;
+    cin>>t;
+    while (t--){
+        int n;
+        cin>>n;
+        int *arr=new int[n];
+        for (int i=0;i<n;i++){
+            cin>>arr[i];
+        }
+        int distance = n-1;
+        for (int i=1;i<n;i++){
+            arr[0]+=arr[i]-1;
+        }
+        distance += arr[0];
+
+        cout<<distance<<endl;        
+        delete arr;
+    }
+}
+
+void HardCard(){
+    int t = 0;
+    cin>>t;
+    while (t--){
+        int n,k;
+        cin>>n>>k;
+        int *arr = new int[n];
+        for (int i=0;i<n;i++){
+            cin>>arr[i];
+        }
+        int reminder = 0;
+
+        for (int i=0;i<n-1;i++){
+            reminder+=arr[i]%k;
+            arr[i]-=arr[i]%k;
+        }
+
+        cout << reminder % k << endl;
+    }
+}
+
+void Carvans(){
+    int t = 0;
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    while (t--){
+        int n;
+        cin>>n;
+        long * speeds = new long[n];
+        for (int i=0;i<n;i++){
+            cin>>speeds[i];
+        }
+        int res = 1;
+        for (int i=1;i<n;i++){
+            if (speeds[i]>speeds[i-1]) speeds[i] = speeds[i-1];
+            else res++;
+        }
+        cout<<res<<endl;
+    }
+}
+
+void AverageFlex(){
+    int t = 0;
+    cin>>t;
+    while (t--){
+        int n;
+        cin>>n;
+        int *points = new int[n];
+
+        for (int i=0;i<n;i++){
+            cin>>points[i];
+        }
+        int res = 0;
+        for (int i=0;i<n;i++){
+            int LessOrEqual[100]{};
+
+            if (LessOrEqual[points[i]]==0){
+                for (int j=0;j<n;j++){
+                    if (i!=j && points[i]>=points[j]) LessOrEqual[points[i]]++;
+                }
+            }
+
+            if (n - LessOrEqual[points[i]] - 1 < LessOrEqual[points[i]]) res++;
+        }
+        cout<<res<<endl;
+        delete points;
+    }
+}
+
+void CollegeLife2(){
+    int t = 0;
+    cin>>t;
+    while (t--){
+        
+        int s;
+        long total = 0;
+        cin>>s;
+        int* Q = new int[s];
+        for (int i=0;i<s;i++){
+            cin>>Q[i];
+        }
+        int **L = new int*[s];
+
+        for (int i=0;i<s;i++){
+            int e = 0;
+            cin>>e;
+            L[i] =  new int[e+1];
+            L[i][0] = e;
+            for (int j=1;j<e+1;j++){
+                cin>>L[i][j];
+                if (j==1) total += L[i][j];
+                else {
+                    total += L[i][j] - Q[i];
+                }
+            }
+        }
+
+        cout << total << endl;
+    } 
+}
+
+void NobelPrize(){
+    int t = 0;
+    cin>>t;
+    while (t--){
+        int n,m;
+        cin>>n>>m;
+        
+        int *researcher = new int[m+1]{0};
+        
+        for (int i=0;i<n;i++){
+            int x;
+            cin>>x;
+            researcher[x]++;
+        }
+        bool isAvailable = false;
+        for (int i=1;i<=m;i++){
+            if (researcher[i]==0) {
+                isAvailable = true;
+                break;
+            }
+        }        
+
+        if (isAvailable) cout<<"YES"<<endl;
+        else cout << "NO" <<endl;
+
+        delete researcher;
+    }
+}
+
+void CodeAndTheThiefDevu(){
+    int t = 0;
+    cin>>t;
+    while (t--){
+        int m,x,y;
+        cin>>m>>x>>y;
+        int numberCover = x*y;
+        int houses[101]{0}; 
+        for (int i = 0;i<m;i++){
+            int occupied = 0;
+            cin>>occupied;
+            int left = occupied <= numberCover ? 1 : occupied - numberCover;
+            int right = occupied + numberCover > 100  ? 100: numberCover + occupied;
+            for (int j=left;j<=right;j++){
+                houses[j]=1;
+            }
+        } 
+        int res = 0;
+        for (int i=1;i<=100;i++){
+            if (houses[i]==0) res++; 
+        }  
+        cout<<res<<endl;
+    }
+}
 
 int main(){
-    VaccineDates();
-}
+    CollegeLife2();
+    return 1;
+}   
