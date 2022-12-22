@@ -6,7 +6,10 @@
         "ios": "cpp",
         "xiosbase": "cpp",
         "iterator": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "istream": "cpp",
+        "xstring": "cpp",
+        "string": "cpp"
     },
     "cSpell.words": [
         "Carvans",
